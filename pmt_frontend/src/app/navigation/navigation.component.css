@@ -1,0 +1,80 @@
+mat-toolbar {
+    background-color: #16bca8;
+}
+
+mat-drawer {
+    width: 290px;
+    padding-top: 20px;
+}
+
+mat-drawer .content {
+    width: 100%;
+}
+
+mat-drawer .content:hover {
+    background-color: grey;
+}
+
+.sidenav-wrapper {
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+.drawer {
+    margin-top: 0.5rem;
+}
+
+.dropdown-link {
+    text-decoration: none;
+    color: black;
+}
+
+mat-tab-group {
+    margin-left: 1rem;
+}
+
+.sidenav-btn {
+    border: none;
+    background-color: #16bca8;
+}
+
+body{
+    font-family:poppins;
+    font-size:20px;
+  }
+  .outer{
+    position:absolute;
+    top:30%;
+    left:40%;
+  }
+  ul{
+    list-style:none;
+  }
+  #ul{
+    margin:0;
+    padding:0;
+  }
+  .caret{
+    cursor:pointer;
+    user-select:none;
+  }
+  .caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 5px;
+  }
+  .caret-down::before {
+    transform: rotate(90deg);  
+  }
+  .nested{
+    display:none;
+  }
+  .active{
+    display: block;
+  }
+  

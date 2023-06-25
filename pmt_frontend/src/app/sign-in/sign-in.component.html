@@ -1,0 +1,43 @@
+<div class="content-body">
+  <mat-card>
+    <mat-card-content>
+      <div class="header">
+        <P>Sign Into Your Account </P>
+      </div>
+      <form (ngSubmit)="onSignIn()" name="loginForm" [formGroup]="signInForm">
+        <div class="emailInput">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input name="email" [(ngModel)]="user.email" formControlName="email" matInput placeholder="Enter email address" required />
+            <mat-error *ngIf="!signInForm.controls['email'].valid">
+              Email is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+   
+        <div>
+          <span>
+            <a class="text-link" class="aLink">Forgot Password?</a>
+          </span>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input name="password" [(ngModel)]="user.password" formControlName="password" matInput [type]=" hide ? 'password' : 'text'" required />
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>
+                {{hide ? 'visibility_off' : 'visibility'}}
+              </mat-icon>
+            </button>
+            <mat-error *ngIf="!signInForm.controls['password'].valid">
+              Password is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <button mat-flat-button color="primary">Login</button>
+      </form>
+      <div class="button-row">
+        <a [routerLink]="['sign-up']">Create New Account</a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

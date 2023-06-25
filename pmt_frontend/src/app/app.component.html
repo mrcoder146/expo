@@ -1,0 +1,9 @@
+<!-- <div class="content-body">
+  <router-outlet></router-outlet>
+</div> -->
+<div *ngIf="isLoggedIn">
+  <div *ngIf="projectSelected">
+    <app-navigation></app-navigation>
+  </div>
+</div>
+<router-outlet></router-outlet>

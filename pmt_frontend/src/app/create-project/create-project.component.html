@@ -1,0 +1,34 @@
+<div class="content-body">
+  <mat-card>
+    <mat-card-content>
+      <div class="header">
+        <P>Create New Project </P>
+      </div>
+      <form (ngSubmit)="onCreateProject()" name="createProjectForm" [formGroup]="createProjectForm">
+  
+        <div>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Company Name</mat-label>
+            <input formControlName="companyName" matInput placeholder="Name Of Company">
+            <mat-error *ngIf="!createProjectForm.controls['companyName'].valid">
+              Company Name required
+            </mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Project Name</mat-label>
+            <input formControlName="projectName" matInput placeholder="Name Of Project">
+            <mat-error *ngIf="!createProjectForm.controls['projectName'].valid">
+              Project Name required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      
+        <button mat-flat-button color="primary"><a [routerLink]="['/select-project']">Create</a></button>
+      </form>
+        <a [routerLink]="['/select-project']">Select Existing Project</a>
+    </mat-card-content>
+  </mat-card>
+</div>

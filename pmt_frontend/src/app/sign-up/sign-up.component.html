@@ -1,0 +1,80 @@
+<div class="content-body">
+  <mat-card>
+    <mat-card-content>
+      <div class="header">
+        <P>Create New Account </P>
+      </div>
+      <form (ngSubmit)="onSignUp()" name="signUpForm" [formGroup]="signUpForm">
+  
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Company Name</mat-label>
+          <input matInput placeholder="Name Of Company">
+        </mat-form-field>
+  
+        <mat-form-field class="first-name" appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input formControlName="firstName" matInput placeholder="First Name">
+          <mat-error *ngIf="!signUpForm.controls['firstName'].valid">
+            First Name required
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field class="last-name" appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input formControlName="lastName" matInput placeholder="Last Name">
+          <mat-error *ngIf="!signUpForm.controls['lastName'].valid">
+            Last Name required
+          </mat-error>
+        </mat-form-field>
+  
+        <div class="emailInput">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput placeholder="Enter email address"/>
+            <mat-error *ngIf="!signUpForm.controls['email'].valid">
+              Email is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+  
+        <mat-form-field class="dropdown" appearance="outline">
+          <mat-label>Code</mat-label>
+          <mat-select [value]="countryCode[0].value">
+            <mat-option *ngFor="let code of countryCode" [value]="code.value">
+              {{code.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field class="phone" appearance="outline">
+          <mat-label>Phone</mat-label>
+          <input formControlName="phoneNumber"  minlength="10" maxlength="10" matInput placeholder="Phone" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+          <mat-error *ngIf="!signUpForm.controls['phoneNumber'].valid">
+            Enter a valid 10 digit Phone number
+          </mat-error>
+        </mat-form-field>
+  
+        <div>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" matInput [type]=" hide ? 'password' : 'text'"/>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>
+                {{hide ? 'visibility_off' : 'visibility'}}
+              </mat-icon>
+            </button>
+            <mat-error *ngIf="!signUpForm.controls['password'].valid">
+              Password is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <button mat-flat-button color="primary">Sign Up</button>
+      </form>
+  
+      <div class="button-row">
+        <a [routerLink]="['']">Already Registered? Sign In</a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

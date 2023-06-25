@@ -1,0 +1,28 @@
+<div class="content-body">
+  <mat-card>
+    <mat-card-content>
+      <div class="header">
+        <P>Select or Create new project </P>
+      </div>
+      <form (ngSubmit)="onSelectProject()" name="selectProjectForm" [formGroup]="selectProjectForm">
+  
+        <div >
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Select Project</mat-label>
+            <mat-select [value]="projects[0].value">
+              <mat-option *ngFor="let project of projects" [value]="project.value">
+                {{project.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+       
+        <button mat-flat-button color="primary">Continue</button>
+      </form>
+  
+      <div class="button-row">
+        <a [routerLink]="['/create-project']">Create New Project</a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
